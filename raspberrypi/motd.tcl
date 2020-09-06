@@ -86,12 +86,13 @@ set gpuoutput2 [lindex $gpu 2]
 set gpuoutput3 [lindex $gpu 8]
 set gpuoutput4 [lindex $gpu 9]
 
-set host [exec -- cat /etc/hostname | figlet]
+set host [exec -- cat /etc/hostname | figlet -r]
 
 # * Print Results
-puts "$host"
+
 puts "\033\[01;32m$head2\033\[0m"
 puts "\033\[02;31m$head\033\[0m"
+puts "\033\[01;32m$host\033\[0m"
 puts "   System........: $unameoutput0 $unameoutput $unameoutput2 $unameoutput3 $unameoutput4"
 puts "   GPU Version...: $gpuoutput $gpuoutput1 $gpuoutput2, $gpuoutput3 $gpuoutput4"
 puts "   Last Login....: $ll(1) $ll(2) $ll(3) $ll(4) from $ll(5)"
