@@ -86,7 +86,7 @@ set gpuoutput2 [lindex $gpu 2]
 set gpuoutput3 [lindex $gpu 8]
 set gpuoutput4 [lindex $gpu 9]
 
-set host [exec -- cat /etc/hostname | figlet -r]
+set host [exec -- cat /etc/hostname | figlet -c]
 
 # * Print Results
 
