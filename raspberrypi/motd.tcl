@@ -86,7 +86,7 @@ set gpuoutput2 [lindex $gpu 2]
 set gpuoutput3 [lindex $gpu 8]
 set gpuoutput4 [lindex $gpu 9]
 
-set host [exec -- figlet `cat /etc/hostname`]
+set host [exec -- cat /etc/hostname | figlet]
 
 # * Print Results
 puts "\033\[01;32m$head2\033\[0m"
