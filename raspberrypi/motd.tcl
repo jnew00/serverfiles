@@ -30,6 +30,9 @@ set up(secs)  [expr {$uptime%60}]
 # * Calculate usage of home directory
 set usage [lindex [exec -- /usr/bin/du -ms $var(home)] 0]
 
+# * Get the number of packages that are upgradeable
+set packages [lindex [exec apt-get -s dist-upgrade | awk '/^Inst/ { print $2 }' 2>&1 | wc -l] 0]
+
 # * Calculate SSH logins:
 set logins    [lindex [exec -- who -q | cut -c "9-11"] 0]
 
@@ -96,6 +99,7 @@ puts "   Memory MB.....: Total: $mem(t)  Used: $mem(u)  Free: $mem(f)  Cached: $
 puts "   Disk Usage....: You're using ${usage}MB in $var(home)"
 puts "   SSH Logins....: Currently $logins user(s) logged in."
 puts "   Processes.....: You're running ${psu} which makes a total of ${psa} running"
+puts "   Packages......: ${packages} can be upgraded"
 
 if {[file exists /etc/changelog]&&[file readable /etc/changelog]} {
   puts " . .. More or less important system informations:\n"
