@@ -31,7 +31,7 @@ set up(secs)  [expr {$uptime%60}]
 set usage [lindex [exec -- /usr/bin/du -ms $var(home)] 0]
 
 # * Get the number of packages that are upgradeable
-set packages [exec -- apt-get -s dist-upgrade | wc -l]
+set packages [exec -- apt-get upgrade -s | grep -P {^\d+ upgraded} | cut -d { } -f1]
 
 # * Calculate SSH logins:
 set logins    [lindex [exec -- who -q | cut -c "9-11"] 0]
