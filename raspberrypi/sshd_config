@@ -1,23 +1,22 @@
 #	$OpenBSD: sshd_config,v 1.103 2018/04/09 20:41:22 tj Exp $
 
 
-Include /etc/ssh/sshd_config.d/*.conf
-Subsystem sftp	/usr/lib/openssh/sftp-server
-
 #Port 22
 #AddressFamily any
 #ListenAddress 0.0.0.0
 #ListenAddress ::
 
 PasswordAuthentication no
-PermitEmptyPasswords no
-PubkeyAuthentication NO
-PrintMotd no
-PrintLastLog no
 ChallengeResponseAuthentication no
 UsePAM yes
 AllowTcpForwarding no
 X11Forwarding no
+PermitEmptyPasswords no
+PubkeyAuthentication no
+PrintMotd no
+PrintLastLog no
+
+Subsystem sftp	/usr/lib/openssh/sftp-server
 
 Match Address 192.168.2.*
       #PasswordAuthentication yes
@@ -100,12 +99,3 @@ Match Address 192.168.2.*
 
 # Allow client to pass locale environment variables
 # AcceptEnv LANG LC_*
-
-
-
-# Example of overriding settings on a per-user basis
-#Match User anoncvs
-#	X11Forwarding no
-#	AllowTcpForwarding no
-#	PermitTTY no
-#	ForceCommand cvs server
