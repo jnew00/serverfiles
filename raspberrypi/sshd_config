@@ -2,7 +2,7 @@
 
 
 Include /etc/ssh/sshd_config.d/*.conf
-Subsystem	sftp	/usr/lib/openssh/sftp-server
+Subsystem sftp	/usr/lib/openssh/sftp-server
 
 #Port 22
 #AddressFamily any
