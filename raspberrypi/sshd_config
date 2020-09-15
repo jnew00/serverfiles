@@ -113,7 +113,7 @@ PrintLastLog no
 # override default of no subsystems
 Subsystem	sftp	/usr/lib/openssh/sftp-server
 
-Match Address 192.168.225.*
-      #PasswordAuthentication no
+Match Address 192.168.2.*
+      #PasswordAuthentication yes
       PubkeyAuthentication yes
       AllowTcpForwarding yes
