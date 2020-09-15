@@ -6,6 +6,8 @@
 #ListenAddress 0.0.0.0
 #ListenAddress ::
 
+AllowUsers *@192.168.2.*
+
 PasswordAuthentication no
 ChallengeResponseAuthentication no
 UsePAM yes
