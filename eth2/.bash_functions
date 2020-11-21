@@ -26,3 +26,5 @@ monitoring () {
 }
 
 logs () { sudo journalctl -u $1 -f; }
+
+prysm_logs() { multitail -ci green -l 'journalctl -f -u validator' -ci yellow -l 'journalctl -f -u beacon'; }
