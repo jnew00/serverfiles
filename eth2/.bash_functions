@@ -10,7 +10,7 @@ function cl() {
 }
 
 prom () { sudo systemctl daemon-reload && sudo systemctl $1 prometheus.service --no-pager; }
-beacon () { sudo systemctl daemon-reload && sudo systemctl $1 beacon-chain.service --no-pager; }
+beacon () { sudo systemctl daemon-reload && sudo systemctl $1 beacon.service --no-pager; }
 validator () { sudo systemctl daemon-reload && sudo systemctl $1 validator.service --no-pager; }
 slasher () { sudo systemctl daemon-reload && sudo systemctl $1 slasher.service --no-pager; }
 geth () { sudo systemctl daemon-reload && sudo systemctl $1 geth.service --no-pager; }
@@ -26,7 +26,3 @@ monitoring () {
 }
 
 logs () { sudo journalctl -u $1 -f; }
-
-nimbus () { sudo systemctl daemon-reload && sudo systemctl $1 nimbus.service --no-pager; }
-lodebeacon () { sudo systemctl daemon-reload && sudo systemctl $1 lodestar-beacon.service --no-pager; }
-lodevalidator () { sudo systemctl daemon-reload && sudo systemctl $1 lodestar-validator.service --no-pager; }
