@@ -116,3 +116,14 @@ alias prune='docker system prune -af --volumes'
 alias ports='sudo lsof -i -P -n | grep LISTEN'
 alias upgrade='sudo apt -y update && sudo apt -y full-upgrade && sudo apt -y autoremove'
 alias reboot='sudo /sbin/reboot'
+
+function cl() {
+    DIR="$*";
+        # if no DIR given, go home
+        if [ $# -lt 1 ]; then
+                DIR=$HOME;
+    fi;
+    builtin cd "${DIR}" && \
+    # use your preferred ls command
+        ls -F --color=auto
+}
